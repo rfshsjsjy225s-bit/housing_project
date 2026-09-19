@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}الصفحة غير موجودة | سكن الغرباء الجامعي الخيري{% endblock %}
+{% block description %}عذراً، الصفحة التي تبحث عنها غير موجودة في موقع سكن الغرباء الجامعي الخيري.{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <!-- رقم الخطأ -->
+            <h1 style="
+                font-size: 9rem;
+                font-weight: 900;
+                line-height: 1;
+                background: var(--gradient-gold);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 10px;
+                text-shadow: 0 10px 40px var(--gold-glow);
+            ">404</h1>
+
+            <h2 style="
+                font-size: 2rem;
+                color: var(--navy-deep);
+                margin-bottom: 20px;
+                font-weight: 800;
+            ">🔍 الصفحة غير موجودة</h2>
+
+            <p style="
+                font-size: 1.15rem;
+                color: var(--gray-text);
+                line-height: 1.9;
+                margin-bottom: 40px;
+            ">
+                عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها إلى مكان آخر.
+                يمكنك العودة إلى الصفحة الرئيسية ومتابعة التصفح.
+            </p>
+
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="{{ url_for('main.index') }}" class="btn btn-gold btn-pulse">
+                    🏠 العودة للرئيسية
+                </a>
+                <a href="{{ url_for('main.index') }}#contact" class="btn btn-primary">
+                    📞 تواصل معنا
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

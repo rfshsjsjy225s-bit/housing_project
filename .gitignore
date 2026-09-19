@@ -1,0 +1,16 @@
+# متغيرات البيئة والمفاتيح السرية
+.env
+serviceAccountKey.json
+*.json
+!vercel.json
+!requirements.txt
+
+# مجلدات النظام
+venv/
+__pycache__/
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/

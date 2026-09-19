@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}خطأ في السيرفر | سكن الغرباء الجامعي الخيري{% endblock %}
+{% block description %}حدث خطأ غير متوقع في السيرفر. نعتذر عن الإزعاج.{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <!-- رقم الخطأ -->
+            <h1 style="
+                font-size: 9rem;
+                font-weight: 900;
+                line-height: 1;
+                background: linear-gradient(135deg, #E53E3E 0%, #C53030 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 10px;
+                text-shadow: 0 10px 40px rgba(229, 62, 62, 0.4);
+            ">500</h1>
+
+            <h2 style="
+                font-size: 2rem;
+                color: var(--navy-deep);
+                margin-bottom: 20px;
+                font-weight: 800;
+            ">⚠️ خطأ في السيرفر</h2>
+
+            <p style="
+                font-size: 1.15rem;
+                color: var(--gray-text);
+                line-height: 1.9;
+                margin-bottom: 40px;
+            ">
+                نعتذر، حدث خطأ غير متوقع أثناء معالجة طلبك.
+                فريقنا التقني سيعمل على إصلاح المشكلة في أقرب وقت.
+                يمكنك المحاولة مرة أخرى بعد قليل.
+            </p>
+
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="{{ url_for('main.index') }}" class="btn btn-gold btn-pulse">
+                    🔄 إعادة المحاولة
+                </a>
+                <a href="{{ url_for('main.index') }}#contact" class="btn btn-primary">
+                    📞 إبلاغ المشرفين
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

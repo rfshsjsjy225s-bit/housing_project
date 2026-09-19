@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}ممنوع الوصول | سكن الغرباء الجامعي الخيري{% endblock %}
+{% block description %}عذراً، لا تملك صلاحية الوصول إلى هذه الصفحة.{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 70vh; display: flex; align-items: center;">
+    <div class="container" style="text-align: center;">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <!-- رقم الخطأ -->
+            <h1 style="
+                font-size: 9rem;
+                font-weight: 900;
+                line-height: 1;
+                background: var(--gradient-navy);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 10px;
+                text-shadow: 0 10px 40px rgba(10, 31, 68, 0.4);
+            ">403</h1>
+
+            <h2 style="
+                font-size: 2rem;
+                color: var(--navy-deep);
+                margin-bottom: 20px;
+                font-weight: 800;
+            ">🔒 ممنوع الوصول</h2>
+
+            <p style="
+                font-size: 1.15rem;
+                color: var(--gray-text);
+                line-height: 1.9;
+                margin-bottom: 40px;
+            ">
+                عذراً، لا تملك الصلاحيات الكافية للوصول إلى هذه الصفحة.
+                إذا كنت تعتقد أن هذا خطأ، يمكنك التواصل مع مشرفي السكن.
+            </p>
+
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="{{ url_for('main.index') }}" class="btn btn-gold btn-pulse">
+                    🏠 العودة للرئيسية
+                </a>
+                <a href="{{ url_for('main.index') }}#contact" class="btn btn-primary">
+                    📞 التواصل مع المشرفين
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

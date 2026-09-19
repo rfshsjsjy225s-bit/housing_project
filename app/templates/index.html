@@ -1,0 +1,493 @@
+{% extends "base.html" %}
+
+{% block title %}الرئيسية | سكن الغرباء الجامعي الخيري{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================
+     1. قسم الواجهة الرئيسية (Hero Section)
+     ========================================== -->
+<section
+    id="hero"
+    class="hero-section"
+    style="background-image: url('{{ url_for('static', filename='images/building.jpg') }}');"
+>
+    <div class="container hero-content">
+        <h2>سكن الغرباء الجامعي الخيري</h2>
+        <p>{{ site_info.tagline }}</p>
+        <div class="hero-buttons">
+            <a href="#registration" class="btn btn-gold btn-pulse">
+                التسجيل في السكن
+            </a>
+            <a href="#contact" class="btn btn-outline">
+                التواصل مع مشرف السكن
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     2. قسم الإشعارات (Notifications)
+     ========================================== -->
+<section class="notifications-section">
+    <div class="container">
+        <div class="notifications-grid">
+            {% for notification in notifications %}
+            <div class="glass-card notification-card">
+                <h4>📢 {{ notification.title }}</h4>
+                <p>{{ notification.content }}</p>
+                {% if notification.date_display %}
+                <small>{{ notification.date_display }}</small>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     3. قسم عن السكن (About)
+     ========================================== -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">عن سكن الغرباء</h2>
+        <p class="section-subtitle">
+            صرح إيماني وتربوي وعلمي خيري، يحتضن الطلاب الجامعيين وطلبة العلم
+        </p>
+
+        <div class="vision-mission-grid">
+            <!-- النبذة -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <h3>نبذة عن السكن</h3>
+                <p>
+                    هو صرح إيماني وتربوي وعلمي خيري، يهدف إلى احتضان الطلاب الجامعيين وطلبة العلم، وتوفير بيئة سكنية متكاملة تجمع بين التحصيل الأكاديمي، وبناء الشخصية القرآنية، وإحياء العلم الشرعي والعمل به، اقتداءً بالنهج النبوي الشريف
+                    <strong style="color: var(--gold);">﴿ طوبى للغرباء ﴾</strong>.
+                </p>
+                <p style="margin-top: 16px;">
+                    <strong>الموقع:</strong> {{ site_info.location }}
+                </p>
+            </div>
+
+            <!-- الرؤية -->
+            <div class="card vision-card">
+                <h3>🎯 رؤيتنا</h3>
+                <p>
+                    مكان آمن ومستقر يساعد الطالب على النجاح في دراسته وبناء شخصيته، ويجمع بين علوم الدنيا وعلوم الدين.
+                </p>
+            </div>
+
+            <!-- الرسالة -->
+            <div class="card mission-card">
+                <h3>💎 رسالتنا</h3>
+                <p>
+                    توفير بيئة سكنية مناسبة للطلاب تقوم على الاستقرار والانضباط والتعاون والاهتمام بالتعليم والقيم، وإعداد جيل من طلبة العلم المستقيمين.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     4. قسم الدور والأهداف (Goals)
+     ========================================== -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">الدور والأهداف</h2>
+        <p class="section-subtitle">
+            أهداف نبيلة نسعى لتحقيقها في حياة كل طالب
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>🏠 الرعاية السكنية والخدمية</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    توفير مسكن مريح ومناسب للطلاب المغتربين، مع تأمين احتياجاتهم المعيشية الأساسية.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h4>📖 البناء الروحي والقرآني</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    برنامج يومي متكامل يبدأ من الفجر، ويشمل صلاة الجماعة، وحلقات التحفيظ، ودرس "الروحة".
+                </p>
+            </div>
+            <div class="feature-card">
+                <h4>🎓 التأصيل العلمي والتربوي</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    إقامة الدروس العلمية والشرعية التي تسهم في بناء طالب علم مستقيم ومنضبط.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h4>🤝 الأنشطة الاجتماعية</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    خلق بيئة أخوية متماسكة من خلال دوري كرة القدم والسمرات الأسبوعية.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h4>🌟 خدمة المجتمع</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    تربية الطلاب على روح البذل والعطاء ليكونوا عناصر صالحة في مجتمعاتهم.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h4>🔒 بيئة آمنة ومنظمة</h4>
+                <p style="margin-top: 10px; font-weight: 400; color: var(--gray-text); font-size: 0.92rem;">
+                    نظام سكن واضح يضمن الأمان والانضباط والراحة لجميع الطلاب.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     5. قسم خطوات التسجيل (Registration Steps)
+     ========================================== -->
+<section id="registration" class="section">
+    <div class="container">
+        <h2 class="section-title">خطوات التسجيل</h2>
+        <p class="section-subtitle">
+            ست خطوات بسيطة لإتمام عملية التسجيل في السكن
+        </p>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <span>01</span>
+                <p>التأكد من استيفاء شروط القبول</p>
+            </div>
+            <div class="step-card">
+                <span>02</span>
+                <p>تجهيز متطلبات التسجيل</p>
+            </div>
+            <div class="step-card">
+                <span>03</span>
+                <p>التواصل مع مشرف السكن</p>
+            </div>
+            <div class="step-card">
+                <span>04</span>
+                <p>تقديم طلب الالتحاق</p>
+            </div>
+            <div class="step-card">
+                <span>05</span>
+                <p>مراجعة الطلب</p>
+            </div>
+            <div class="step-card">
+                <span>06</span>
+                <p>إبلاغ الطالب بنتيجة الطلب</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     6. قسم شروط القبول (Conditions)
+     ========================================== -->
+<section id="conditions" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">شروط القبول في السكن</h2>
+        <p class="section-subtitle">
+            الشروط التي يجب توفرها للانضمام إلى السكن
+        </p>
+
+        <ul class="list-styled">
+            <li>أن لا يقل عمره عن 18 سنة.</li>
+            <li>الالتزام بالبرنامج اليومي للساكنين.</li>
+            <li>الالتزام بنظام السكن وترتيباته.</li>
+            <li>الالتزام بلائحة الرخص والإجازات (أن لا تقل مدة الدراسة عن سنة).</li>
+            <li>دفع الرسوم أول كل شهر مساهمة في التغذية.</li>
+            <li>رغبته في نفع نفسه ونفع الآخرين خصوصاً في منطقته ومسجده.</li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     7. قسم متطلبات التسجيل (Requirements)
+     ========================================== -->
+<section id="requirements" class="section">
+    <div class="container">
+        <h2 class="section-title">متطلبات التسجيل</h2>
+        <p class="section-subtitle">
+            المطلوب إحضاره للراغب في التسجيل
+        </p>
+
+        <ul class="list-styled">
+            <li>تعبئة الاستمارة الخاصة بالقبول.</li>
+            <li>تزكية مكتوبة من جهة أو شخصية معروفة مع رقم المزكي.</li>
+            <li>ملف عادي.</li>
+            <li>صورتين شخصيتين.</li>
+            <li>نسخة من الهوية.</li>
+            <li>موافقة ولي الأمر.</li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     8. قسم نظام السكن والبرنامج اليومي (System)
+     ========================================== -->
+<section id="system" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">نظام السكن</h2>
+        <p class="section-subtitle">
+            برنامج يومي متكامل يجمع بين العبادة والدراسة والراحة
+        </p>
+
+        <!-- البرنامج اليومي -->
+        <div class="card" style="max-width: 900px; margin: 0 auto 40px; padding: 40px;">
+            <h3 style="text-align: center; color: var(--navy-deep); margin-bottom: 24px;">
+                🕐 البرنامج اليومي للساكنين
+            </h3>
+            <ul class="list-styled" style="margin: 0;">
+                <li>الاستيقاظ قبل الفجر بنصف ساعة وقراءة الأذكار.</li>
+                <li>صلاة الفجر جماعة، ثم درس إلى الإشراق.</li>
+                <li>تناول وجبة الفطور.</li>
+                <li>صلاة الظهر جماعة.</li>
+                <li>تناول وجبة الغداء ثم راحة إلى أذان العصر.</li>
+                <li>صلاة العصر جماعة ثم حضور درس الروحة.</li>
+                <li>قراءة أذكار قبل المغرب، ثم صلاة المغرب جماعة.</li>
+                <li>حضور الحلقة إلى أذان العشاء.</li>
+                <li>صلاة العشاء جماعة.</li>
+                <li>تناول وجبة العشاء، ثم مراجعة في الغرف إلى وقت النوم.</li>
+            </ul>
+        </div>
+
+        <!-- قواعد النظام -->
+        <h3 style="text-align: center; color: var(--navy-deep); margin-bottom: 30px; font-size: 1.5rem;">
+            📋 قواعد النظام العامة
+        </h3>
+        <div class="system-grid">
+            <div class="card"><h4>نظام الحضور والانصراف</h4></div>
+            <div class="card"><h4>أوقات النوم والراحة</h4></div>
+            <div class="card"><h4>المحافظة على النظافة</h4></div>
+            <div class="card"><h4>المحافظة على ممتلكات السكن</h4></div>
+            <div class="card"><h4>استخدام المرافق</h4></div>
+            <div class="card"><h4>التعامل بين الطلاب</h4></div>
+            <div class="card"><h4>الزيارات</h4></div>
+            <div class="card"><h4>استخدام الأجهزة</h4></div>
+            <div class="card"><h4>المخالفات والإجراءات</h4></div>
+            <div class="card"><h4>التعليمات العامة</h4></div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     9. قسم الأنشطة والبرامج (Activities)
+     ========================================== -->
+<section id="activities" class="section">
+    <div class="container">
+        <h2 class="section-title">الأنشطة والبرامج</h2>
+        <p class="section-subtitle">
+            فعاليات أسبوعية وشهرية تثري حياة الطالب وتنمي شخصيته
+        </p>
+
+        <div class="activities-grid">
+            {% for activity in activities %}
+            <div class="activity-card">
+                <h4>
+                    {% if activity.icon %}{{ activity.icon }}{% else %}🎯{% endif %}
+                    {{ activity.title }}
+                </h4>
+                <p>{{ activity.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     10. قسم إدارة وإشراف السكن (Supervisors)
+     ========================================== -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">إدارة وإشراف السكن</h2>
+        <p class="section-subtitle">
+            للتواصل المباشر مع مشرفي السكن
+        </p>
+
+        <div class="supervisors-grid">
+            {% for supervisor in supervisors %}
+            <div class="supervisor-card">
+                <h4>{{ supervisor.name }}</h4>
+                <p>{{ supervisor.title }}</p>
+                <a
+                    href="{{ supervisor.whatsapp }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-whatsapp"
+                >
+                    💬 تواصل عبر WhatsApp
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     11. قسم بوابة التواصل والتسجيل (CTA)
+     ========================================== -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h3>هل ترغب في التسجيل في السكن؟</h3>
+            <p>
+                إذا كنت ترغب في الالتحاق بسكن الغرباء الجامعي الخيري، يمكنك التواصل مع أحد مشرفي السكن للحصول على المعلومات وإتمام إجراءات التسجيل.
+            </p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a
+                    href="{{ supervisors[0].whatsapp if supervisors else '#' }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-gold btn-pulse"
+                >
+                    💬 التواصل عبر WhatsApp
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    📞 عرض أرقام المشرفين
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     12. قسم الأسئلة الشائعة (FAQ)
+     ========================================== -->
+<section id="faq" class="section">
+    <div class="container">
+        <h2 class="section-title">الأسئلة الشائعة</h2>
+        <p class="section-subtitle">
+            إجابات على أكثر الأسئلة تكراراً
+        </p>
+
+        <div class="faq-grid">
+            <div class="card faq-card">
+                <h4>❓ هل السكن مجاني؟</h4>
+                <p>السكن خيري، مع دفع رسوم شهرية رمزية مساهمة في التغذية فقط.</p>
+            </div>
+            <div class="card faq-card">
+                <h4>❓ ما هي الفئة المستهدفة؟</h4>
+                <p>الطلاب الجامعيون وطلبة العلم المغتربون الذين يستوفون شروط القبول.</p>
+            </div>
+            <div class="card faq-card">
+                <h4>❓ هل يوجد برنامج يومي إلزامي؟</h4>
+                <p>نعم، البرنامج اليومي متكامل ويشمل الصلوات جماعة، الحلقات القرآنية، والدروس العلمية.</p>
+            </div>
+            <div class="card faq-card">
+                <h4>❓ كيف أتواصل مع المشرفين؟</h4>
+                <p>يمكنك التواصل مباشرة عبر واتساب من خلال بطاقات المشرفين في الأعلى.</p>
+            </div>
+            <div class="card faq-card">
+                <h4>❓ هل توجد أنشطة ترفيهية؟</h4>
+                <p>نعم، يوجد دوري كرة قدم شهري، سمرات أسبوعية كل خميس، ورحلات شهرية.</p>
+            </div>
+            <div class="card faq-card">
+                <h4>❓ هل يمكنني زيارة السكن قبل التسجيل؟</h4>
+                <p>نعم، يُرحب بالزيارة. تواصل مع المشرفين لتحديد الموعد المناسب.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     13. قسم الشكاوى والمقترحات (Complaints)
+     ========================================== -->
+<section id="complaints" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">الشكاوى والمقترحات</h2>
+        <p class="section-subtitle">
+            رأيك يهمنا، ونسعى دائماً للتطوير
+        </p>
+
+        <div class="card" style="max-width: 700px; margin: 0 auto; text-align: center; padding: 50px 30px;">
+            <h3 style="color: var(--navy-deep); margin-bottom: 16px;">
+                📬 نرحب بملاحظاتكم
+            </h3>
+            <p style="color: var(--gray-text); margin-bottom: 30px; font-size: 1.05rem;">
+                نرحب بملاحظاتكم ومقترحاتكم لتطوير الخدمات المقدمة في السكن. تواصلوا معنا مباشرة عبر واتساب.
+            </p>
+            <a
+                href="{{ supervisors[0].whatsapp if supervisors else '#' }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+            >
+                📩 إرسال شكوى أو مقترح
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================
+     14. قسم موقع السكن والتواصل (Contact)
+     ========================================== -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-subtitle">
+            نحن هنا للإجابة على استفساراتكم
+        </p>
+
+        <div class="contact-grid">
+            <!-- موقع السكن -->
+            <div class="card contact-info">
+                <h3>📍 موقع السكن</h3>
+                <p style="margin-bottom: 20px; color: var(--gray-text); font-size: 1.05rem;">
+                    {{ site_info.location }}
+                </p>
+                <a
+                    href="{{ site_info.google_maps_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    🗺️ فتح الموقع على Google Maps
+                </a>
+            </div>
+
+            <!-- أرقام التواصل -->
+            <div class="card contact-info">
+                <h3>📞 أرقام التواصل</h3>
+                <p style="color: var(--gray-text); margin-bottom: 16px;">
+                    للتواصل المباشر مع مشرفي السكن:
+                </p>
+                <ul>
+                    {% for supervisor in supervisors %}
+                    <li>
+                        <strong>{{ supervisor.name }}:</strong>
+                        <a
+                            href="{{ supervisor.whatsapp }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style="color: var(--green-success); font-weight: 700; margin-right: 6px;"
+                        >
+                            {{ supervisor.phone_display }} 💬
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a
+                    href="{{ supervisors[0].whatsapp if supervisors else '#' }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-whatsapp"
+                    style="margin-top: 20px; width: 100%;"
+                >
+                    💬 التواصل عبر WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

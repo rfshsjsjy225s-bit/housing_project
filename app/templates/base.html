@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- ==========================================
+         SEO Meta Tags
+         ========================================== -->
+    <title>{% block title %}سكن الغرباء الجامعي الخيري | بيئة سكنية آمنة للطلاب{% endblock %}</title>
+    <meta name="description" content="{% block description %}الموقع الرسمي لسكن الغرباء الجامعي الخيري - مؤسسة إحياء للتنمية. بيئة سكنية آمنة للطلاب الجامعيين، معلومات التسجيل، شروط القبول، والمتطلبات.{% endblock %}">
+    <meta name="keywords" content="سكن طلابي، سكن الغرباء، مؤسسة إحياء للتنمية، سكن جامعي، المكلا، فوه، مسجد البركة، مدرسة الغرباء">
+    <meta name="author" content="وكالة مسارك كود - Masar Code">
+    <meta name="robots" content="index, follow">
+
+    <!-- ==========================================
+         Open Graph (لمشاركة الموقع على السوشيال ميديا)
+         ========================================== -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="سكن الغرباء الجامعي الخيري">
+    <meta property="og:description" content="بيئة سكنية آمنة ومهيأة للطلاب، تجمع بين الاستقرار والاهتمام بالتعليم والقيم.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/building.jpg') }}">
+    <meta property="og:locale" content="ar_YE">
+
+    <!-- ==========================================
+         Twitter Card
+         ========================================== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="سكن الغرباء الجامعي الخيري">
+    <meta name="twitter:description" content="بيئة سكنية آمنة ومهيأة للطلاب الجامعيين.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/building.jpg') }}">
+
+    <!-- ==========================================
+         Favicon (أيقونة الموقع)
+         ========================================== -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/ehya_logo.png') }}">
+
+    <!-- ==========================================
+         الخطوط العربية من Google Fonts
+         ========================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- ==========================================
+         ملف الأنماط الرئيسي
+         ========================================== -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <!-- ==========================================
+         الأشكال العائمة المتحركة في الخلفية
+         (Floating Shapes - University Theme)
+         ========================================== -->
+    <div class="floating-shapes" aria-hidden="true">
+        <!-- دوائر فاخرة -->
+        <div class="shape shape-circle shape-circle-1"></div>
+        <div class="shape shape-circle shape-circle-2"></div>
+        <div class="shape shape-circle shape-circle-3"></div>
+
+        <!-- رمز قبعة التخرج (الجامعة) -->
+        <div class="shape shape-graduation"></div>
+
+        <!-- رمز الكتاب المفتوح (العلم) -->
+        <div class="shape shape-book"></div>
+
+        <!-- رمز النجمة (التفوق) -->
+        <div class="shape shape-star"></div>
+
+        <!-- نقاط متلألئة -->
+        <div class="dot dot-1"></div>
+        <div class="dot dot-2"></div>
+        <div class="dot dot-3"></div>
+        <div class="dot dot-4"></div>
+        <div class="dot dot-5"></div>
+    </div>
+
+    <!-- ==========================================
+         رأس الموقع (Header)
+         ========================================== -->
+    <header class="main-header">
+        <div class="container header-container">
+
+            <!-- الشعارات الدائرية -->
+            <div class="logo-area">
+                <img
+                    src="{{ url_for('static', filename='images/ehya_logo.png') }}"
+                    alt="شعار مؤسسة إحياء للتنمية"
+                    class="logo"
+                    title="مؤسسة إحياء للتنمية"
+                >
+                <img
+                    src="{{ url_for('static', filename='images/furqan_logo.png') }}"
+                    alt="شعار مدرسة الغرباء لتحفيظ القرآن الكريم"
+                    class="logo"
+                    title="مدرسة الغرباء لتحفيظ القرآن الكريم"
+                >
+            </div>
+
+            <!-- اسم الموقع -->
+            <div class="site-title">
+                <h1>سكن الغرباء الجامعي الخيري</h1>
+                <p>مؤسسة إحياء للتنمية · مدرسة الغرباء لتحفيظ القرآن الكريم</p>
+            </div>
+
+            <!-- زر واتساب سريع للرأس (اختياري) -->
+            <a
+                href="{{ supervisors[0].whatsapp if supervisors else '#' }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-gold header-cta"
+                title="تواصل سريع عبر واتساب"
+            >
+                تواصل الآن
+            </a>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         شريط التنقل (Navigation Bar)
+         ========================================== -->
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#about">عن السكن</a></li>
+                <li><a href="#registration">التسجيل</a></li>
+                <li><a href="#conditions">شروط القبول</a></li>
+                <li><a href="#requirements">متطلبات التسجيل</a></li>
+                <li><a href="#system">نظام السكن</a></li>
+                <li><a href="#activities">الأنشطة</a></li>
+                <li><a href="#faq">الأسئلة الشائعة</a></li>
+                <li><a href="#complaints">الشكاوى والمقترحات</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+
+            <a href="#registration" class="btn btn-primary nav-cta">
+                التسجيل في السكن
+            </a>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         المحتوى الرئيسي (يتغير حسب الصفحة)
+         ========================================== -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ==========================================
+         تذييل الموقع (Footer)
+         ========================================== -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+
+            <!-- القسم الأول: عن السكن -->
+            <div class="footer-section">
+                <h3>سكن الغرباء الجامعي الخيري</h3>
+                <p>صرح إيماني وتربوي وعلمي خيري، يهدف إلى احتضان الطلاب الجامعيين وطلبة العلم، وتوفير بيئة سكنية متكاملة تجمع بين التحصيل الأكاديمي، وبناء الشخصية القرآنية.</p>
+                <p style="margin-top: 12px; color: var(--gold); font-weight: 600;">
+                    ﴿ طوبى للغرباء ﴾
+                </p>
+            </div>
+
+            <!-- القسم الثاني: روابط سريعة -->
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#hero">الرئيسية</a></li>
+                    <li><a href="#about">عن السكن</a></li>
+                    <li><a href="#registration">التسجيل</a></li>
+                    <li><a href="#conditions">شروط القبول</a></li>
+                    <li><a href="#requirements">متطلبات التسجيل</a></li>
+                    <li><a href="#system">نظام السكن</a></li>
+                    <li><a href="#contact">التواصل</a></li>
+                </ul>
+            </div>
+
+            <!-- القسم الثالث: التواصل -->
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li>📍 {{ site_info.location }}</li>
+                    <li>
+                        🗺️
+                        <a href="{{ site_info.google_maps_url }}" target="_blank" rel="noopener noreferrer">
+                            فتح الموقع على الخريطة
+                        </a>
+                    </li>
+                    {% for supervisor in supervisors %}
+                    <li>
+                        📞
+                        <a href="{{ supervisor.whatsapp }}" target="_blank" rel="noopener noreferrer">
+                            {{ supervisor.name }} - واتساب
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- القسم الرابع: الجهات المرتبطة -->
+            <div class="footer-section">
+                <h3>الجهات المرتبطة</h3>
+                <p>نعمل بالتعاون مع:</p>
+                <div class="footer-logos">
+                    <img
+                        src="{{ url_for('static', filename='images/ehya_logo.png') }}"
+                        alt="مؤسسة إحياء للتنمية"
+                        title="مؤسسة إحياء للتنمية"
+                    >
+                    <img
+                        src="{{ url_for('static', filename='images/furqan_logo.png') }}"
+                        alt="مدرسة الغرباء لتحفيظ القرآن الكريم"
+                        title="مدرسة الغرباء لتحفيظ القرآن الكريم"
+                    >
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             الحقوق والتصميم
+             ========================================== -->
+        <div class="footer-bottom">
+            <p>
+                © {{ current_year }} <strong>سكن الغرباء الجامعي الخيري</strong>. جميع الحقوق محفوظة.
+            </p>
+            <p>
+                تصميم وتطوير بواسطة
+                <a href="{{ masar_code.url }}" target="_blank" rel="noopener noreferrer">
+                    {{ masar_code.name }}
+                </a>
+                <span style="opacity: 0.6; margin: 0 6px;">|</span>
+                <a href="{{ masar_code.whatsapp }}" target="_blank" rel="noopener noreferrer">
+                    💬 تواصل معنا
+                </a>
+            </p>
+            <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 8px;">
+                Designed &amp; Developed by {{ masar_code.name_en }}
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         ملف JavaScript الرئيسي
+         ========================================== -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
