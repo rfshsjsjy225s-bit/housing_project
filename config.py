@@ -33,11 +33,7 @@ def find_firebase_credentials():
     if matching_files:
         return sorted(matching_files)[0]
 
-    raise FileNotFoundError(
-        'لم يتم العثور على ملف اعتماد Firebase. '
-        'يجب وضع ملف يبدأ اسمه بـ serviceAccountKey وينتهي بـ .json أو .json.json '
-        f'داخل المجلد: {basedir}'
-    )
+    return None
 
 
 class Config:

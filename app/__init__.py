@@ -54,10 +54,10 @@ def initialize_firebase(app):
     else:
         # المحاولة الثانية: القراءة من الملف المحلي (للتطوير)
         cred_path = app.config.get('FIREBASE_CREDENTIALS')
-        if not os.path.exists(cred_path):
+        if not cred_path:
             raise FileNotFoundError(
-                f"❌ لم يتم العثور على ملف مفاتيح Firebase في المسار: {cred_path}\n"
-                f"تأكد من وضع ملف serviceAccountKey.json في المجلد الرئيسي."
+                "❌ لم يتم العثور على ملف مفاتيح Firebase. "
+                "تأكد من وضع ملف serviceAccountKey.json في المجلد الرئيسي."
             )
         cred = credentials.Certificate(cred_path)
         app.logger.info("✅ تم تحميل مفاتيح Firebase من الملف المحلي.")
