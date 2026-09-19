@@ -7,10 +7,25 @@ serviceAccountKey.json
 
 # مجلدات النظام
 venv/
+.venv/
+env/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 __pycache__/
+
+# قاعدة البيانات
+instance/
+*.db
+*.sqlite
+*.sqlite3
 
 # IDE
 .vscode/
 .idea/
+*.swp
+
+# نظام التشغيل
+.DS_Store
+Thumbs.db
